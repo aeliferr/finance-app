@@ -24,4 +24,4 @@ jobs:
           echo $SSH_KEY > ~/.ssh/my-key.key
           chmod 600 ~/.ssh/my-key.key
           ssh-keyscan -H $SERVER_ADDRESS >> ~/.ssh/known_hosts
-      - run: ssh $SERVER_USERNAME@$SERVER_ADDRESS 'whoami'
+      - run: ssh "$SERVER_USERNAME@$SERVER_ADDRESS" 'whoami'
