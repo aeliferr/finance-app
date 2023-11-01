@@ -12,6 +12,7 @@ jobs:
       - run: pnpm install
       - run: pnpm test
   deploy-app:
+    needs: test-app
     runs-on: ubuntu-latest
     steps:
       - name: Deploy NodeJS app
@@ -22,5 +23,5 @@ jobs:
           echo "$SSH_KEY" > ~/.ssh/my-key.key
           chmod 600 ~/.ssh/my-key.key
           touch ~/.ssh/known_hosts
-          ssh-keyscan -H 137.184.9.139 >> ~/.ssh/known_hosts
-      - run: ssh -i ~/.ssh/my-key.key root@137.184.9.139 'whoami'
+          ssh-keyscan -H $SERVER_ADDRESS >> ~/.ssh/known_hosts
+      - run: ssh -i ~/.ssh/my-key.key $SERVER_USERNAME@$SERVER_ADDRESS 'whoami'
