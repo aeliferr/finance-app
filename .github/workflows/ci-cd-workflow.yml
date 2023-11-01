@@ -17,11 +17,13 @@ jobs:
     steps:
       - name: Deploy NodeJS app
         env:
-          SSH_KEY: ${{ secrets.SSH_KEY }}          
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SERVER_ADDRESS: ${{ env.SERVER_ADDRESS }}
+          SERVER_USERNAME: ${{ env.SERVER_USERNAME }}
         run: |
           mkdir -p ~/.ssh/
           echo "$SSH_KEY" > ~/.ssh/my-key.key
           chmod 600 ~/.ssh/my-key.key
           touch ~/.ssh/known_hosts
-          ssh-keyscan -H ${{ env.SERVER_ADDRESS }} >> ~/.ssh/known_hosts
+          ssh-keyscan -H $SERVER_ADDRESS >> ~/.ssh/known_hosts
       - run: ssh -i ~/.ssh/my-key.key "$SERVER_USERNAME@$SERVER_ADDRESS" 'whoami'
