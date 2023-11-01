@@ -18,8 +18,8 @@ jobs:
       - name: Deploy NodeJS app
         env:
           SSH_KEY: ${{ secrets.SSH_KEY }}
-          SERVER_ADDRESS: ${{ env.SERVER_ADDRESS }}
-          SERVER_USERNAME: ${{ env.SERVER_USERNAME }}
+          SERVER_ADDRESS: ${{ vars.SERVER_ADDRESS }}
+          SERVER_USERNAME: ${{ vars.SERVER_USERNAME }}
         run: |
           mkdir -p ~/.ssh/
           echo "$SSH_KEY" > ~/.ssh/my-key.key
