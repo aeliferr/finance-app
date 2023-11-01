@@ -24,4 +24,4 @@ jobs:
           echo $SSH_KEY > ~/.ssh/my-key.key
           chmod 600 ~/.ssh/my-key.key
           ssh-keyscan -H 137.184.9.139 >> ~/.ssh/known_hosts
-      - run: ssh root@137.184.9.139 'whoami'
+      - run: ssh -i ~/.ssh/my-key.key root@137.184.9.139 'whoami'
