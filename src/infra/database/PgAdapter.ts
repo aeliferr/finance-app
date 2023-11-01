@@ -14,7 +14,7 @@ export default class PgAdapter implements DatabaseConnection {
 		})
 	}
 
-	async query(statement: string, params: any): Promise<T> {
+	async query(statement: string, params: any): Promise<any> {
 		const result = await this.connection.query(statement, params)
 		return result.rows
 	}

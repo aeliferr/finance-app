@@ -1,6 +1,8 @@
-drop database if exists marcenaria_db;
+drop database if exists finance_db;
 
-create database marcenaria_db;
+create database finance_db;
+
+\c finance_db;
 
 create table bill_to_pay (
     id uuid primary key,
