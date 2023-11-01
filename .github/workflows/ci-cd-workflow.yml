@@ -9,4 +9,5 @@ jobs:
         with:
           node-version: '18.x'
       - run: npm install -g pnpm
+      - run: pnpm install
       - run: pnpm test
