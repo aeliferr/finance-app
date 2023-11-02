@@ -6,8 +6,15 @@
   "scripts": {
     "test": "vitest run",
     "dev": "tsx watch ./src/index.ts",
-    "build": "tsc",
+    "build": "tsup",
+    "start": "node ./dist/index.js",
     "prepare": "husky install"
+  },
+  "tsup": {
+    "entry": ["./src"],
+    "splitting": false,
+    "sourcemap": true,
+    "clean": true
   },
   "keywords": [],
   "author": "",
@@ -19,12 +26,13 @@
     "@typescript-eslint/eslint-plugin": "^6.9.0",
     "@typescript-eslint/parser": "^6.9.0",
     "eslint": "^8.52.0",
+    "husky": "^8.0.0",
+    "tsc-alias": "^1.8.8",
     "tsup": "^7.2.0",
     "tsx": "^3.14.0",
     "typescript": "^5.2.2",
     "vite-tsconfig-paths": "^4.2.1",
-    "vitest": "^0.34.6",
-    "husky": "^8.0.0"
+    "vitest": "^0.34.6"
   },
   "dependencies": {
     "@fastify/cors": "^8.4.1",
