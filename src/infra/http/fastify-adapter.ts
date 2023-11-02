@@ -1,14 +1,15 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import HttpServer from './http-server'
-import fastify, { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify'
-import cors from '@fastify/cors'
+import HttpServer from "./http-server"
+import fastify, { FastifyInstance, FastifyReply, FastifyRequest } from "fastify"
+import cors from "@fastify/cors"
 
 export default class FastifyAdapter implements HttpServer {
 	app: FastifyInstance
 	constructor() {
 		this.app = fastify()
 		this.app.register(cors, {
-			logLevel: 'error'
+			logLevel: "error",
+			origin: "*"
 		})
 	}
 
