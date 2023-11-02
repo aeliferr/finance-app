@@ -10,6 +10,16 @@ export default class BillToPayRepositoryDatabase implements BillToPayRepository 
         
 	}
 
+	async list(): Promise<BillToPay[]> {
+		const billsToPay = await this.connection.query<BillToPay[]>("select * from bill_to_pay", [])
+		
+		const result = billsToPay.map(x => {
+			return new BillToPay(x.id, x.value, x.due_date)
+		})
+
+		return result
+	}
+
 	async get(id: string): Promise<BillToPay> {
 		const [billToPay] = await this.connection.query<BillToPay[]>("select * from bill_to_pay where id = $1", [id])
 		

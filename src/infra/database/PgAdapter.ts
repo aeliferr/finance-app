@@ -1,5 +1,5 @@
 import DatabaseConnection from "./database-connection"
-import { Pool, QueryResultRow } from "pg"
+import { Pool } from "pg"
 
 export default class PgAdapter implements DatabaseConnection {
 	private connection: Pool

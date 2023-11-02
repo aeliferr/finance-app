@@ -1,5 +1,5 @@
-import { BillToPay } from '@/domain/bill-to-pay/bill-to-pay'
-import BillToPayRepository from './repository/bill-to-pay-repository'
+import { BillToPay } from "@/domain/bill-to-pay/bill-to-pay"
+import BillToPayRepository from "./repository/bill-to-pay-repository"
 
 export default class AddBillToPay {
 	/**
@@ -10,7 +10,7 @@ export default class AddBillToPay {
 	}
 
 	async execute(input: Input): Promise<Output> {
-		const billToPay = BillToPay.create(input.value, input.dueDate)
+		const billToPay = BillToPay.create(input.value, input.due_date)
 		await this.billToPayRepository.save(billToPay)
 		return {
 			id: billToPay.id
@@ -20,7 +20,7 @@ export default class AddBillToPay {
 
 type Input = {
     value: number
-    dueDate: string
+    due_date: string
 }
 
 type Output = {

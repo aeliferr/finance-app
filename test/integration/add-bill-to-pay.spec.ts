@@ -16,7 +16,7 @@ describe("add bill to pay tests", () => {
 
 		const addBillToPay = new AddBillToPay(billToPayRepository)
 
-		const createdBillToPay = await addBillToPay.execute({ dueDate: due_date, value})
+		const createdBillToPay = await addBillToPay.execute({ due_date: due_date, value})
 
 		expect(createdBillToPay.id).toBeDefined()
 	})
