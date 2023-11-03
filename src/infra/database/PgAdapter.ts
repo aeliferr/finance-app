@@ -6,7 +6,7 @@ export default class PgAdapter implements DatabaseConnection {
     
 	constructor() {
 		this.connection = new Pool({
-			connectionString: "postgres://postgres:123456@localhost:5432/marcenaria_db"
+			connectionString: "postgres://postgres:123456@localhost:5432/finance_db"
 		})
 
 		this.connection.on("connect", () => {
